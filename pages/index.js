@@ -6,10 +6,45 @@ import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
+import {useState} from 'react';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
 export default function Home({ profiles, filesData }) {
+
+const [query,setQuery]=useState([]);
+const searchProfile = (event) =>{
+  const query = event.target.value;
+  setQuery(query);
+  //The following function only shows first profile that matches..needs improvement
+  for(let i=0;i<filesData.length;i++){
+    for(let element=0;element<filesData[i].name.length;element++){
+      if((filesData[i].name[element].toLowerCase() == query.toLowerCase())){
+        document.getElementById("searchedProfile").innerHTML=
+        `<div
+            key={index}
+            className={styles.profile}
+            style={{
+              borderColor: colors[Math.floor(Math.random() * (colors.length))]
+            }}
+          >
+            <Image
+              src=${filesData[i].avatar}
+              alt=${filesData[i].name}
+              width={100}
+              height={100}
+            />
+            <h2>${filesData[i].name}</h2>
+            <p>${filesData[i].bio}</p>
+            <a href=${filesData[i].links[0].url} target='_blank' rel='noopener noreferrer'>${filesData[i].links[0].icon && <FaLinkedin />}</a>
+            <a href=${filesData[i].links[1].url} target='_blank' rel='noopener noreferrer'>${filesData[i].links[1].icon && <FaGithub />}</a>
+            <a href=${filesData[i].links[2].url} target='_blank' rel='noopener noreferrer'>${filesData[i].links[2].icon && <FaTwitter />}</a>
+          </div>`;
+      }
+    }
+  }
+  
+}
   return (
     <div className={styles.container}>
       <Head>
@@ -109,7 +144,11 @@ export default function Home({ profiles, filesData }) {
       </main>
 
       {/* TODO: Implement search functionality */}
-      <section className={styles.search}></section>
+      <section className={styles.search}>
+        <input type="text" placeholder="Enter a name" onChange={searchProfile} />
+        <p id="searchedProfile">
+        </p>
+      </section>
 
       <section className={styles.profiles}>
         {filesData.map((profile, index) => (
