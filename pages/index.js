@@ -160,10 +160,9 @@ export default function Home({ profiles, filesData }) {
 export async function getServerSideProps() {
   // const profiles = await listReactFiles(__dirname + 'data/');
   // console.log(__dirname);
-  const directoryPath = path.join(
-    getConfig().serverRuntimeConfig.PROJECT_ROOT,
-    process.env.NODE_ENV === 'production' ? '/shared/data' : '/shared/data'
-  );
+  const directoryPath =
+    process.env.NODE_ENV === 'production' ? '/shared/data' : '/shared/data';
+
   const fileNames = [],
     filesData = [];
   const files = fs.readdirSync(directoryPath);
