@@ -160,9 +160,8 @@ export default function Home({ profiles, filesData }) {
 export async function getServerSideProps() {
   // const profiles = await listReactFiles(__dirname + 'data/');
   // console.log(__dirname);
-  const directoryPath =
-    process.env.NODE_ENV === 'production' ? '/shared/data' : '/shared/data';
 
+  const directoryPath = path.join(process.cwd(), './public/data');
   const fileNames = [],
     filesData = [];
   const files = fs.readdirSync(directoryPath);
@@ -177,7 +176,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      fileNames,
+      // fileNames,
       filesData,
       profiles: 'profiles'
     }
