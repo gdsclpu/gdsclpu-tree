@@ -108,9 +108,8 @@ export default function Home({ profiles, filesData }) {
         </p>
       </main>
 
-      <section className={styles.search}>
-        <p>{profiles}</p>
-      </section>
+      {/* TODO: Implement search functionality */}
+      <section className={styles.search}></section>
 
       <section className={styles.profiles}>
         {filesData.map((profile, index) => (
@@ -141,15 +140,6 @@ export default function Home({ profiles, filesData }) {
                 {social.icon === 'twitter' && <FaTwitter />}
               </a>
             ))}
-            {/* <a href= target={'_blank'} rel={'noopener noreferrer'}>
-            <FaLinkedin />
-          </a> */}
-            {/* <a href="" target={'_blank'} rel={'noopener noreferrer'}>
-            <FaTwitter />
-          </a>
-          <a href="" target={'_blank'} rel={'noopener noreferrer'}>
-            <FaGithub />
-          </a> */}
           </div>
         ))}
       </section>
@@ -160,7 +150,7 @@ export default function Home({ profiles, filesData }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Google Developer Student Club - LPU
+          @ Google Developer Student Club - LPU
         </a>
       </footer>
     </div>
