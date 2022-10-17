@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import fs from 'fs';
+import path from 'path';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import listReactFiles from 'list-react-files';
 
 import styles from '../styles/Home.module.css';
+import getConfig from 'next/config';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
@@ -154,7 +157,10 @@ export default function Home({ profiles }) {
 export async function getServerSideProps() {
   // const profiles = await listReactFiles(__dirname + 'data/');
   // console.log(__dirname);
-  const directoryPath = path.join(__dirname, '../public/data');
+  const directoryPath = path.join(
+    getConfig().serverRuntimeConfig.PROJECT_ROOT,
+    '/public/data'
+  );
   const fileNames = [];
   const files = fs.readdirSync(directoryPath);
   files.forEach(function (file) {

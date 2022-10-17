@@ -1,0 +1,23 @@
+{
+  "name": "Raman Sharma",
+  "bio": "Final year CSE student",
+  "avatar": "https://github.com/RamanSharma100.png",
+  "links": [
+    {
+      "url": "https://github.com/RamanSharma100",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/FullyworldT",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/raman-sharma-2169b0139/",
+      "icon": "linkedin"
+    },
+    {
+      "url": "https://www.youtube.com/fullyworldwebtutorials",
+      "icon": "youtube"
+    }
+  ]
+}
