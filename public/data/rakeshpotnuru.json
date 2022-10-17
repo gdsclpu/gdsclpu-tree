@@ -1,0 +1,19 @@
+{
+  "name": "Rakesh Potnuru",
+  "bio": "3rd year CS student",
+  "avatar": "https://github.com/RakeshPotnuru.png",
+  "links": [
+    {
+      "url": "https://github.com/RakeshPotnuru",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/rakesh_at_tweet",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/rakesh-potnuru-067a8b1b1/",
+      "icon": "linkedin"
+    }
+  ]
+}
