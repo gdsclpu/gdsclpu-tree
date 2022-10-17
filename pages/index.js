@@ -162,7 +162,7 @@ export async function getServerSideProps() {
   // console.log(__dirname);
   const directoryPath = path.join(
     getConfig().serverRuntimeConfig.PROJECT_ROOT,
-    '/data'
+    process.env.NODE_ENV === 'production' ? '/shared/data' : '/shared/data'
   );
   const fileNames = [],
     filesData = [];
