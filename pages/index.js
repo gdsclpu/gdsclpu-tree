@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
 import fs from 'fs';
 import path from 'path';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
-import listReactFiles from 'list-react-files';
 
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
-export default function Home({ profiles }) {
+export default function Home({ profiles, filesData }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -115,30 +113,45 @@ export default function Home({ profiles }) {
       </section>
 
       <section className={styles.profiles}>
-        <div
-          className={styles.profile}
-          style={{
-            borderColor: colors[Math.floor(Math.random() * colors.length)]
-          }}
-        >
-          <Image
-            src="https://github.com/RakeshPotnuru.png"
-            alt="Rakesh Potnuru"
-            width={100}
-            height={100}
-          />
-          <h2>Rakesh Potnuru</h2>
-          <p>A 3rd year CS student</p>
-          <a href="" target={'_blank'} rel={'noopener noreferrer'}>
+        {filesData.map((profile, index) => (
+          <div
+            key={index}
+            className={styles.profile}
+            style={{
+              borderColor: colors[Math.floor(Math.random() * colors.length)]
+            }}
+          >
+            <Image
+              src={profile.avatar}
+              alt={profile.name}
+              width={100}
+              height={100}
+            />
+            <h2>{profile.name}</h2>
+            <p>{profile.bio}</p>
+            {profile.links.map((social, index) => (
+              <a
+                key={index * 56}
+                href={social.url}
+                target={'_blank'}
+                rel={'noopener noreferrer'}
+              >
+                {social.icon === 'linkedin' && <FaLinkedin />}
+                {social.icon === 'github' && <FaGithub />}
+                {social.icon === 'twitter' && <FaTwitter />}
+              </a>
+            ))}
+            {/* <a href= target={'_blank'} rel={'noopener noreferrer'}>
             <FaLinkedin />
-          </a>
-          <a href="" target={'_blank'} rel={'noopener noreferrer'}>
+          </a> */}
+            {/* <a href="" target={'_blank'} rel={'noopener noreferrer'}>
             <FaTwitter />
           </a>
           <a href="" target={'_blank'} rel={'noopener noreferrer'}>
             <FaGithub />
-          </a>
-        </div>
+          </a> */}
+          </div>
+        ))}
       </section>
 
       <footer className={styles.footer}>
@@ -161,14 +174,22 @@ export async function getServerSideProps() {
     getConfig().serverRuntimeConfig.PROJECT_ROOT,
     '/public/data'
   );
-  const fileNames = [];
+  const fileNames = [],
+    filesData = [];
   const files = fs.readdirSync(directoryPath);
   files.forEach(function (file) {
-    fileNames.push(file.substring(0, file.indexOf('.')));
+    const fileName = file.substring(0, file.indexOf('.'));
+    fileNames.push(fileName);
+    const fileData = JSON.parse(
+      fs.readFileSync(directoryPath + '/' + file, 'utf8')
+    );
+    filesData.push(fileData);
   });
-  console.log(fileNames);
+
   return {
     props: {
+      fileNames,
+      filesData,
       profiles: 'profiles'
     }
   };
