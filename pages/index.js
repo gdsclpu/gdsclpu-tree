@@ -172,7 +172,7 @@ export async function getServerSideProps() {
   // console.log(__dirname);
   const directoryPath = path.join(
     getConfig().serverRuntimeConfig.PROJECT_ROOT,
-    '/public/data'
+    '/data'
   );
   const fileNames = [],
     filesData = [];
