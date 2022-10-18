@@ -1,0 +1,19 @@
+{
+    "name": "Aryan Ba3a Kumar",
+    "bio": "Backend Dev",
+    "avatar": "https://github.com/ba3a-g.png",
+    "links": [
+      {
+        "url": "https://github.com/ba3a-g",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/ba3a_gamzo",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/ba3a/",
+        "icon": "linkedin"
+      }
+    ]
+  }
