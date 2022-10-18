@@ -3,7 +3,7 @@ import path from 'path';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
-
+//hello
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
 
