@@ -1,0 +1,21 @@
+
+
+{
+  "name": "Vivek Kumar Yadav",
+  "bio": "3rd year CS student",
+  "avatar": "https://ums.lpu.in/lpuums/DisplayImageForPowerBi.aspx?id=f8e7b7d3-745a-442d-baee-02daa57ad984",
+  "links": [
+    {
+      "url": "https://github.com/0xd3vil",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/0xd3vil",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/0xd3vil",
+      "icon": "linkedin"
+    }
+  ]
+}
