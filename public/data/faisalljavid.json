@@ -1,0 +1,20 @@
+{
+    "name": "Faisal Javid",
+    "bio": "1st year CS student",
+    "avatar": "https://github.com/faisalljavid.png",
+    "links": [
+      {
+        "url": "https://github.com/faisalljavid",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/faisalljavid",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/faisalljavid",
+        "icon": "linkedin"
+      }
+    ]
+  }
+  
