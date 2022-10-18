@@ -1,0 +1,19 @@
+{
+    "name": "Sai Adithya",
+    "bio": "Full Stack Web Dev",
+    "avatar": "https://github.com/SaiAdithya3.png",
+    "links": [
+      {
+        "url": "https://github.com/SaiAdithya3",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/SaiAdithya39",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/ksaiadithya/",
+        "icon": "linkedin"
+      }
+    ]
+  }
