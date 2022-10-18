@@ -150,7 +150,7 @@ export default function Home({ profiles, filesData }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          @ Google Developer Student Club - LPU
+          © @ Google Developer Student Club - LPU
         </a>
       </footer>
     </div>
