@@ -1,0 +1,19 @@
+{
+    "name": "Raman Sharma",
+    "bio": "Final year CSE student",
+    "avatar": "https://github.com/VANSHAJB10.png",
+    "links": [
+      {
+        "url": "https://github.com/VANSHAJB10",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/V10027",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/vanshaj-bajaj-146880222/",
+        "icon": "linkedin"
+      }
+    ]
+}
