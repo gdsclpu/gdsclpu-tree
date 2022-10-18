@@ -1,0 +1,23 @@
+{
+  "name": "Shivam Singh",
+  "bio": "1st Year B.Tech Student at LPU.",
+  "avatar": "https://avatars.githubusercontent.com/u/75006771?s=400&u=f534510318d62a4da3bce9ec9e685e7517eee5f8&v=4",
+  "links": [
+    {
+      "url": "https://github.com/sd-shiivam",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/sd_shiivam",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/sd-shiivam/",
+      "icon": "linkedin"
+    },
+    {
+      "url": "https://www.youtube.com",
+      "icon": "youtube"
+    }
+  ]
+}
