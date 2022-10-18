@@ -1,0 +1,23 @@
+{
+    "name": "Biva Chhetri",
+    "bio": "Third year CSE student",
+    "avatar": "https://github.com/Biva01.png",
+    "links": [
+      {
+        "url": "https://github.com/Biva01",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/biva-chhetri-7492ba218/",
+        "icon": "linkedin"
+      },
+      {
+        "url": "https://www.youtube.com",
+        "icon": "youtube"
+      }
+    ]
+  }
