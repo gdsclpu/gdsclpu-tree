@@ -113,34 +113,38 @@ export default function Home({ profiles, filesData }) {
 
       <section className={styles.profiles}>
         {filesData.map((profile, index) => (
-          <div
-            key={index}
-            className={styles.profile}
-            style={{
-              borderColor: colors[Math.floor(Math.random() * colors.length)]
-            }}
-          >
-            <Image
-              src={profile.avatar}
-              alt={profile.name}
-              width={100}
-              height={100}
-            />
-            <h2>{profile.name}</h2>
-            <p>{profile.bio}</p>
-            {profile.links.map((social, index) => (
-              <a
-                key={index * 56}
-                href={social.url}
-                target={'_blank'}
-                rel={'noopener noreferrer'}
+          <>
+            {profile !== null && (
+              <div
+                key={index}
+                className={styles.profile}
+                style={{
+                  borderColor: colors[Math.floor(Math.random() * colors.length)]
+                }}
               >
-                {social.icon === 'linkedin' && <FaLinkedin />}
-                {social.icon === 'github' && <FaGithub />}
-                {social.icon === 'twitter' && <FaTwitter />}
-              </a>
-            ))}
-          </div>
+                <Image
+                  src={profile.avatar}
+                  alt={profile.name}
+                  width={100}
+                  height={100}
+                />
+                <h2>{profile.name}</h2>
+                <p>{profile.bio}</p>
+                {profile.links.map((social, index) => (
+                  <a
+                    key={index * 56}
+                    href={social.url}
+                    target={'_blank'}
+                    rel={'noopener noreferrer'}
+                  >
+                    {social.icon === 'linkedin' && <FaLinkedin />}
+                    {social.icon === 'github' && <FaGithub />}
+                    {social.icon === 'twitter' && <FaTwitter />}
+                  </a>
+                ))}
+              </div>
+            )}
+          </>
         ))}
       </section>
 
@@ -168,9 +172,17 @@ export async function getServerSideProps() {
   files.forEach(function (file) {
     const fileName = file.substring(0, file.indexOf('.'));
     fileNames.push(fileName);
-    const fileData = JSON.parse(
-      fs.readFileSync(directoryPath + '/' + file, 'utf8')
-    );
+    let fileData = fs.readFileSync(directoryPath + '/' + file, 'utf8');
+
+    if (fileData) {
+      // check if json is valid
+      try {
+        fileData = JSON.parse(fileData);
+      } catch (e) {
+        fileData = {};
+      }
+    }
+
     filesData.push(fileData);
   });
 
