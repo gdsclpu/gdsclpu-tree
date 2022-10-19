@@ -1,0 +1,19 @@
+{
+  "name": "Sidharth Kumar",
+  "bio": "3rd year CS student",
+  "avatar": "https://github.com/Sidharthkrsharma.png",
+  "links": [
+    {
+      "url": "https://github.com/Sidharthkrsharma",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/Sidharthkrsharma",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/sidharth-kumar",
+      "icon": "linkedin"
+    }
+  ]
+}
