@@ -114,7 +114,7 @@ export default function Home({ profiles, filesData }) {
       <section className={styles.profiles}>
         {filesData.map((profile, index) => (
           <>
-            {profile !== null && (
+            {profile !== '' && (
               <div
                 key={index}
                 className={styles.profile}
@@ -130,7 +130,7 @@ export default function Home({ profiles, filesData }) {
                 />
                 <h2>{profile.name}</h2>
                 <p>{profile.bio}</p>
-                {profile.links.map((social, index) => (
+                {profile?.links?.map((social, index) => (
                   <a
                     key={index * 56}
                     href={social.url}
@@ -174,12 +174,12 @@ export async function getServerSideProps() {
     fileNames.push(fileName);
     let fileData = fs.readFileSync(directoryPath + '/' + file, 'utf8');
 
-    if (fileData) {
+    if (fileData !== '') {
       // check if json is valid
       try {
         fileData = JSON.parse(fileData);
       } catch (e) {
-        fileData = {};
+        fileData = null;
       }
     }
 
