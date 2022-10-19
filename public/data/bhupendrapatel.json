@@ -1,0 +1,19 @@
+{
+    "name": "Bhupendra Patel",
+    "bio": "3rd year CSE student",
+    "avatar": "https://github.com/bhupendraptlk.png",
+    "links": [
+      {
+        "url": "https://github.com/bhupendraptlk",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/bhupendraptlk",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/bhupendraptlk",
+        "icon": "linkedin"
+      }
+    ]
+  }
