@@ -114,7 +114,7 @@ export default function Home({ profiles, filesData }) {
       <section className={styles.profiles}>
         {filesData.map((profile, index) => (
           <>
-            {profile !== '' && (
+            {profile !== null && profile !== '' && profile !== '{}' && (
               <div
                 key={index}
                 className={styles.profile}
@@ -123,13 +123,13 @@ export default function Home({ profiles, filesData }) {
                 }}
               >
                 <Image
-                  src={profile.avatar}
-                  alt={profile.name}
+                  src={profile?.avatar}
+                  alt={profile?.name}
                   width={100}
                   height={100}
                 />
-                <h2>{profile.name}</h2>
-                <p>{profile.bio}</p>
+                <h2>{profile?.name}</h2>
+                <p>{profile?.bio}</p>
                 {profile?.links?.map((social, index) => (
                   <a
                     key={index * 56}
