@@ -1,0 +1,19 @@
+{
+  "name": "Alwin Mathew Jacob",
+  "bio": "2rd year CS student",
+  "avatar": "https://github.com/alwinmj.png",
+  "links": [
+    {
+      "url": "https://github.com/alwinmj",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/rakesh_at_tweet",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/alwinmj",
+      "icon": "linkedin"
+    }
+  ]
+}

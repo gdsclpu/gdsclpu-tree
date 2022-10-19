@@ -1,0 +1,23 @@
+{
+    "name": "Vivek Singh",
+    "bio": "Third year CSE student",
+    "avatar": "https://github.com/vivek1898.png",
+    "links": [
+      {
+        "url": "https://github.com/vivek1898",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/vivek-s-953368121/",
+        "icon": "linkedin"
+      },
+      {
+        "url": "https://www.youtube.com",
+        "icon": "youtube"
+      }
+    ]
+  }

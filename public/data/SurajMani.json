@@ -1,0 +1,19 @@
+{
+    "name": "Suraj Mani",
+    "bio": "Final year CSE student",
+    "avatar": "https://github.com/smanitech.png",
+    "links": [
+      {
+        "url": "https://github.com/smanitech",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/smanitech",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/surajmani-me/",
+        "icon": "linkedin"
+      }
+    ]
+  }
