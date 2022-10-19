@@ -1,19 +1,19 @@
 {
-    "name": "Tushar Vilekar",
-    "bio": "Community Lead",
-    "avatar": "https://avatars.githubusercontent.com/u/73468854?v=4",
-    "links": [
-      {
-        "url": "https://github.com/Xplod4432",
-        "icon": "github"
-      },
-      {
-        "url": "https://twitter.com/TVilekar",
-        "icon": "twitter"
-      },
-      {
-        "url": "https://www.linkedin.com/in/tushar-vilekar-8556701b3/",
-        "icon": "linkedin"
-      }
-    ]
+  "name": "Tushar Vilekar",
+  "bio": "Community Lead",
+  "avatar": "https://github.com/Xplod4432.png",
+  "links": [
+    {
+      "url": "https://github.com/Xplod4432",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/TVilekar",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/tushar-vilekar-8556701b3/",
+      "icon": "linkedin"
+    }
+  ]
 }
