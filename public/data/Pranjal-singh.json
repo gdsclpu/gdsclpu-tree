@@ -1,0 +1,19 @@
+{
+  "name": "Pranjal Singh",
+  "bio": "1st year CS student",
+  "avatar": "https://github.com/pranjalsingh03.png",
+  "links": [
+    {
+      "url": "https://github.com/pranjalsingh03",
+      "icon": "github"
+    },
+    {
+      "url": "https://twitter.com/pranjal9304",
+      "icon": "twitter"
+    },
+    {
+      "url": "https://www.linkedin.com/in/pranjalsingh93",
+      "icon": "linkedin"
+    }
+  ]
+}
