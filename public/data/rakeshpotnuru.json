@@ -1,0 +1,19 @@
+{
+    "name": "Rakesh Potnuru",
+    "bio": "Web dev & Technical writer",
+    "avatar": "https://github.com/RakeshPotnuru.png",
+    "links": [
+      {
+        "url": "https://github.com/RakeshPotnuru",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/rakesh_at_tweet",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/itsrakeshdotco/",
+        "icon": "linkedin"
+      }
+    ]
+  }
