@@ -6,68 +6,29 @@ import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
-import {useState} from 'react';
+import {useState } from 'react';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
-export default function Home({ profiles, filesData }) {
-  const [query,setQuery]=useState([]);
-  const searchProfile = (event) =>{
+export default function Home({ filesData }) {
+  const [query, setQuery] = useState([]);
+  // const [profiles, setProfiles] = useState(filesData);
+  const [filteredResults, setFilteredResults] = useState(filesData);
+  const searchProfile = (event) => {
     const query = event.target.value;
     setQuery(query);
-    var result = [];
-    for(let i=0;i<filesData.length;i++){
-      for(let element=0;element<filesData[i].name.length;element++){
-        if((filesData[i].name.slice(0,element).toLowerCase() == query.toLowerCase())){
-          result.push(i);
-        }
-      }
+    if (query !== '') {
+      const filteredData = filesData.filter((item) => {
+        return Object.values(item)
+          .join('')
+          .toLowerCase()
+          .includes(query.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(filesData);
     }
-    var uniqueResult = [...new Set(result)];
-    var parent = document.getElementById("searchedProfile");
-    parent.innerHTML="";
-    if(query!=''){
-      uniqueResult.map((i)=>{
-        var child = document.createElement('div');
-        child.innerHTML =
-          `<div
-              key={i}
-              className={styles.profile}
-              style={{
-                borderColor: colors[Math.floor(Math.random() * (colors.length))]
-              }}
-            >
-            <Image
-              src=${filesData[i].avatar}
-              alt=${filesData[i].name}
-              width={100}
-              height={100}
-            />
-            <h2>${filesData[i].name}</h2>
-            <p>${filesData[i].bio}</p>
-            ${filesData[i].links.url?.map((social, index) => (
-              <a
-                key={i * 56}
-                href={social.url}
-                target={'_blank'}
-                rel={'noopener noreferrer'}
-              >
-                {social.icon === 'linkedin' && <FaLinkedin />}
-                {social.icon === 'github' && <FaGithub />}
-                {social.icon === 'twitter' && <FaTwitter />}
-              </a>
-              ))}
-          </div>`;
-        parent.appendChild(child);
-      })
-      document.getElementById("profilesSection").style.display="none";
-      parent.style.diplay="block";
-    }
-    else{
-      document.getElementById("profilesSection").style.display="block";
-      parent.style.diplay="none";
-    }
-  }
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -164,48 +125,52 @@ export default function Home({ profiles, filesData }) {
           </a>{' '}
           to join the Tree
         </p>
-        <section className={styles.search}>
-        <input type="text" placeholder="Enter a name" onChange={searchProfile} />
-        <p id="searchedProfile" className={styles.profiles}>
-        </p>
-      </section>
       </main>
+      <section className={styles.search}>
+        <h2>Search Profile</h2>
+        <input
+          type="text"
+          placeholder="Enter a name"
+          onChange={searchProfile}
+        />
+        <p id="searchedProfile" className={styles.profiles}></p>
+      </section>
       <section id="profilesSection">
         <div className={styles.profiles}>
-          {filesData.map((profile, index) => (
-            <>
-              {profile !== null && profile !== '' && profile !== '{}' && (
-                <div
-                  key={index}
-                  className={styles.profile}
-                  style={{
-                    borderColor: colors[Math.floor(Math.random() * colors.length)]
-                  }}
-                >
-                  <Image
-                    src={profile?.avatar}
-                    alt={profile?.name}
-                    width={100}
-                    height={100}
-                  />
-                  <h2>{profile?.name}</h2>
-                  <p>{profile?.bio}</p>
-                  {profile?.links?.map((social, index) => (
-                    <a
-                      key={index * 56}
-                      href={social.url}
-                      target={'_blank'}
-                      rel={'noopener noreferrer'}
-                    >
-                      {social.icon === 'linkedin' && <FaLinkedin />}
-                      {social.icon === 'github' && <FaGithub />}
-                      {social.icon === 'twitter' && <FaTwitter />}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </>
-          ))}
+          {filteredResults.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={styles.profile}
+                    style={{
+                      borderColor:
+                        colors[Math.floor(Math.random() * colors.length)]
+                    }}
+                  >
+                    <Image
+                      src={item?.avatar}
+                      alt={item?.name}
+                      width={100}
+                      height={100}
+                    />
+                    <h2>{item?.name}</h2>
+                    <p>{item?.bio}</p>
+                    {item?.links?.map((social, index) => (
+                      <a
+                        key={index * 56}
+                        href={social.url}
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                      >
+                        {social.icon === 'linkedin' && <FaLinkedin />}
+                        {social.icon === 'github' && <FaGithub />}
+                        {social.icon === 'twitter' && <FaTwitter />}
+                      </a>
+                    ))}
+                  </div>
+                );
+              })
+              }
         </div>
       </section>
 
@@ -243,15 +208,13 @@ export async function getServerSideProps() {
         fileData = null;
       }
     }
-
     filesData.push(fileData);
   });
 
   return {
     props: {
       // fileNames,
-      filesData,
-      profiles: 'profiles'
+      filesData
     }
   };
 }
