@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
