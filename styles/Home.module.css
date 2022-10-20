@@ -31,7 +31,9 @@
   border: none;
   width: 40%;
   height: 34px;
-  font-size: 20px;
+  /* font-size: 20px; */
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .profiles {

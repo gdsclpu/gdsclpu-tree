@@ -6,26 +6,29 @@ import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const colors = ['#2196F3', '#F44336', '#FFC107', '#4CAF50'];
 
-export default function Home({ profiles, filesData }) {
-  const [query,setQuery]=useState([]);
-  const [filteredResults, setFilteredResults] = useState([]);
+export default function Home({ filesData }) {
+  const [query, setQuery] = useState([]);
+  // const [profiles, setProfiles] = useState(filesData);
+  const [filteredResults, setFilteredResults] = useState(filesData);
   const searchProfile = (event) => {
     const query = event.target.value;
-    setQuery(query)
+    setQuery(query);
     if (query !== '') {
       const filteredData = filesData.filter((item) => {
-        return Object.values(item).join('').toLowerCase().includes(query.toLowerCase())
-        })
-        setFilteredResults(filteredData)
+        return Object.values(item)
+          .join('')
+          .toLowerCase()
+          .includes(query.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(filesData);
     }
-    else{
-        setFilteredResults(filesData)
-    }
-  }
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -122,81 +125,52 @@ export default function Home({ profiles, filesData }) {
           </a>{' '}
           to join the Tree
         </p>
-        <section className={styles.search}>
-        <input type="text" placeholder="Enter a name" onChange={searchProfile} />
-        <p id="searchedProfile" className={styles.profiles}>
-        </p>
-      </section>
       </main>
+      <section className={styles.search}>
+        <h2>Search Profile</h2>
+        <input
+          type="text"
+          placeholder="Enter a name"
+          onChange={searchProfile}
+        />
+        <p id="searchedProfile" className={styles.profiles}></p>
+      </section>
       <section id="profilesSection">
         <div className={styles.profiles}>
-        {query.length > 1 ? (
-                    filteredResults.map((item,index) => {
-                      return (
-                        <div
-                          key={index}
-                          className={styles.profile}
-                          style={{
-                            borderColor: colors[Math.floor(Math.random() * colors.length)]
-                          }}
-                        >
-                          <Image
-                            src={item?.avatar}
-                            alt={item?.name}
-                            width={100}
-                            height={100}
-                          />
-                          <h2>{item?.name}</h2>
-                          <p>{item?.bio}</p>
-                          {item?.links?.map((social, index) => (
-                            <a
-                              key={index * 56}
-                              href={social.url}
-                              target={'_blank'}
-                              rel={'noopener noreferrer'}
-                            >
-                              {social.icon === 'linkedin' && <FaLinkedin />}
-                              {social.icon === 'github' && <FaGithub />}
-                              {social.icon === 'twitter' && <FaTwitter />}
-                            </a>
-                          ))}
-                        </div>
-                      )
-                  })
-                ) : (
-                    filesData.map((item,index) => {
-                        return (
-                          <div
-                            key={index}
-                            className={styles.profile}
-                            style={{
-                              borderColor: colors[Math.floor(Math.random() * colors.length)]
-                            }}
-                          >
-                            <Image
-                              src={item?.avatar}
-                              alt={item?.name}
-                              width={100}
-                              height={100}
-                            />
-                            <h2>{item?.name}</h2>
-                            <p>{item?.bio}</p>
-                            {item?.links?.map((social, index) => (
-                              <a
-                                key={index * 56}
-                                href={social.url}
-                                target={'_blank'}
-                                rel={'noopener noreferrer'}
-                              >
-                                {social.icon === 'linkedin' && <FaLinkedin />}
-                                {social.icon === 'github' && <FaGithub />}
-                                {social.icon === 'twitter' && <FaTwitter />}
-                              </a>
-                            ))}
-                          </div>
-                        )
-                    })
-                )}
+          {filteredResults.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={styles.profile}
+                    style={{
+                      borderColor:
+                        colors[Math.floor(Math.random() * colors.length)]
+                    }}
+                  >
+                    <Image
+                      src={item?.avatar}
+                      alt={item?.name}
+                      width={100}
+                      height={100}
+                    />
+                    <h2>{item?.name}</h2>
+                    <p>{item?.bio}</p>
+                    {item?.links?.map((social, index) => (
+                      <a
+                        key={index * 56}
+                        href={social.url}
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                      >
+                        {social.icon === 'linkedin' && <FaLinkedin />}
+                        {social.icon === 'github' && <FaGithub />}
+                        {social.icon === 'twitter' && <FaTwitter />}
+                      </a>
+                    ))}
+                  </div>
+                );
+              })
+              }
         </div>
       </section>
 
@@ -240,8 +214,7 @@ export async function getServerSideProps() {
   return {
     props: {
       // fileNames,
-      filesData,
-      profiles: 'profiles'
+      filesData
     }
   };
 }
