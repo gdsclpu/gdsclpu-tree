@@ -178,7 +178,7 @@ export default function Home({ filesData }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          © Google Developer Student Club - LPU
+          © {new Date().getFullYear()} Google Developer Student Club - LPU
         </a>
       </footer>
     </div>
