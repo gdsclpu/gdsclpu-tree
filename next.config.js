@@ -13,7 +13,8 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname
-  }
+  },
+  output: 'standalone'
 };
 
 module.exports = nextConfig;
