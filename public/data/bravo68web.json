@@ -1,0 +1,23 @@
+{
+    "name": "Jyotirmoy Bandyopadhayaya",
+    "bio": "Tech Lead GDSC LPU | Backend + DevSecOps Engineer",
+    "avatar": "https://github.com/bravo68web.png",
+    "links": [
+      {
+        "url": "https://github.com/bravo68web",
+        "icon": "github"
+      },
+      {
+        "url": "https://twitter.com/bravo68web",
+        "icon": "twitter"
+      },
+      {
+        "url": "https://www.linkedin.com/in/bravo68web/",
+        "icon": "linkedin"
+      },
+      {
+        "url": "https://b68.dev",
+        "icon": "website"
+      }
+    ]
+}
