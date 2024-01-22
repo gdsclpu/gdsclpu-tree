@@ -1,0 +1,16 @@
+{
+  "name": "Vansh kumar",
+  "bio": "Web-Dev & Tech Enthusiast",
+  "avatar": "https://github.com/Vansh16aug.png",
+  "links": [
+    {
+      "url": "https://github.com/Vansh16aug",
+      "icon": "github"
+    },
+
+    {
+      "url": "www.linkedin.com/in/vansh-kumar16aug",
+      "icon": "linkedin"
+    }
+  ]
+}
